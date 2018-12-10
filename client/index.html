@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Realtime Vote</title>
+    <link href="src/script/style.css" rel="stylesheet">
+    <script src="src/script/warpspeed.js"></script>
+
+</head>
+<body style="background: #120B1E; overflow: hidden">
+
+    <div id="event">
+        <div>
+            축하합니다!
+        </div>
+    </div>
+
+    <div id="footer">
+        <canvas id="background"></canvas>
+    </div>
+
+    <script>
+        let warp = new WarpSpeed(
+            "background",
+            {
+                targetSpeed:1.0, speedAdjFactor:0.07, shape:"circle", backgroundColor:"hsl(263,45%,8%)", speedWhileLoading:20, warpEffectLength:8
+            });
+        warp.loadStart();
+    </script>
+
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;subset=korean" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+
+    <div id="view">
+        <div class="viewport" id="login" style="display:none">
+            <div class="agent">
+                <div class="txt">
+                    <div class="card">
+                        <div class="cardText">
+                            Student No.
+                        </div>
+                        <div id="loginForm">
+                            <div id="input_studentNum">
+                                <input onkeyup="enterKey()" class="inputText" v-model="studentNum" inputmode="numeric" placeholder="ex) 30629">
+                            </div>
+                            <div id="btnLogin">
+                                <button id="buttonLogin" v-on:click="login">➔</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile"><img src="src/img/profile.svg" class="imgGithub"></div>
+        </div>
+
+        <div class="viewport" id="vote"style="display:none">
+            <div class="agent">
+                <div class="txt" id="question">
+                    <div style="width: 100%">
+                        {{ question }}
+                    </div>
+                </div>
+                <div id="btnVote">
+                    <div class="btns" v-for="btn in btns" :key="btn.id">
+                        <button class="select" v-on:click="select(btn.name)">{{btn.name}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="profile"><img src="src/img/profile.svg" class="imgGithub"></div>
+        </div>
+
+        <div class="viewport txt" id="info" style="display:none">
+            <div class="agent">
+                <div style="width: 100%">
+                    {{ info }}
+                </div>
+            </div>
+            <div class="profile"><img src="src/img/profile.svg" class="imgGithub"></div>
+        </div>
+
+        <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+
+        <div id="app" style="display:none">
+            <v-app id="inspire">
+
+                <v-snackbar
+                        v-model="snackbar"
+                        class="black--text"
+                        :bottom="y === 'bottom'"
+                        :left="x === 'left'"
+                        :multi-line="mode === 'multi-line'"
+                        :right="x === 'right'"
+                        :timeout="timeout"
+                        :top="y === 'top'"
+                        :vertical="mode === 'vertical'"
+                        :color="color"
+                >
+                    {{ text }}
+                    <v-btn
+                            color="pink"
+                            flat
+                            @click="snackbar = false"
+                    >
+                        Close
+                    </v-btn>
+                </v-snackbar>
+                </v-card>
+            </v-app>
+        </div>
+
+    <script src="src/script/fbInit.js"></script>
+    <script src="src/script/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+
+
+    </div>
+
+
+
+</body>
+</html>

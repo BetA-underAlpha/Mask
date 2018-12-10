@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Realtime Vote Admin</title>
+</head>
+<body>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+
+    <div id = login>
+        관리자 이메일 <input type="email" id="inputID">
+        관리자 비말번호 <input type="password" id="inputPassword">
+        <button id="btnLogin" onClick="adminLogin()">로그인</button>
+        <div id="loginInfo"></div>
+    </div>
+
+    <div id = viewer>
+        <div id="input">
+            <div id="question">
+                질문 <input type="text" id="inputQuestion">
+            </div>
+            <div id="button">
+                버튼 ($로 구별) <input type="text" id="inputButton">
+            </div>
+        </div>
+
+        <div id="btns">
+            <button id="btnSet" onClick="setVote()">준비</button>
+            <button id="btnStart" onClick="startVote()">시작</button>
+            <button id="btnEnd" onClick="endVote()">중지</button>
+            <button id="btnReset" onClick="resetStatus()">초기화</button>
+        </div>
+
+        <div id="info">
+
+        </div>
+    </div>
+
+
+    <script src="fbInit.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>

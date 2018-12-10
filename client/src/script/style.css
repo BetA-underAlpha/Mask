@@ -1,0 +1,273 @@
+body{
+    color: white;
+    text-align: center;
+    font-size: 4vmin;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+:focus { outline: none; }
+
+#footer{
+    position:fixed; z-index:0; top:0; left:0; width:100%; height:100%;
+}
+
+#event{
+    position:fixed; z-index:3; top:0; left:0; width:100%; height:100%;
+    display:none; background-color: red; color: white;
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    animation: fadeAnimation 3s;
+    animation-iteration-count: infinite;
+    font-weight: bold;
+}
+#background{
+    width:100%; height:100%;
+}
+
+
+#view{
+    position:fixed; z-index:1; top:0; left:0; width:100%; height:100%; overflow:hidden;
+}
+
+.agent{
+    animation: fadeIn 1.25s;
+    display:flex;
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    height:97%;
+    width:100%;
+}
+
+.profile{
+    display:flex;
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    width: 100%;
+    height: 3%;
+}
+
+.imgGithub{
+    height:30%;
+    width: 100%;
+}
+
+.viewport{
+    display:none;
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+
+#question{
+    width: 100%;
+    height: 70%;
+}
+#btnVote{
+    width:100%;
+    height:30%;
+}
+
+.btns{
+    width:100%;
+}
+
+.select{
+    width: 98%;
+    height: 95%;
+    background: transparent;
+    color: white;
+    border-color:white;
+    font-size: 3.5vmin;
+    box-shadow:inset 0px 0px 0px 0.3vmin #ffffff;
+    transition: 0.3s;
+}
+
+.select:hover{
+    background-color:white;
+    color:black;
+}
+
+.txt{
+    font-weight: bold;
+    display: flex;
+    align-items : center;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+}
+
+.card{
+    font-weight: 500;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    background-color: white;
+    color: black;
+    border-radius: 0.5vmin;
+}
+
+.cardText{
+    color: black;
+    width:46.5vmin;
+    margin-top: 2vmin;
+    margin-left: 2vmin;
+    margin-right: 2vmin;
+    margin-bottom: 0vmin;
+    text-align:left;
+    font-size:1.5vmin;
+}
+
+#loginForm{
+    font-weight: 400;
+    width:47vmin;
+    display:flex;
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+    margin-top: 1vmin;
+    margin-bottom: 2.5vmin
+}
+
+#input_studentNum{
+    display:flex;
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    line-height: 50%;
+    font-size:3vh;
+    height:4vmin;
+    width:100%;
+}
+
+.inputText{
+    padding: 2vmin;
+    padding-left: 1vmin;
+    height:2vmin;
+    width:41vmin;
+    background-color:#eeeeee;
+    outline:none;
+    border:none; border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;
+    font-size:1.5vmin;
+    margin:0;
+}
+
+.inputText:focus{
+    outline:none;
+}
+
+#btnLogin{
+    display: flex;
+}
+#buttonLogin{
+
+    border:none;
+    margin-top:0;
+    margin-left:0.5vmin;
+    border-radius: 2vmin;
+    background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+    color: white;
+    width: 4vmin;
+    height: 4vmin;
+    font-size: 1vmin;
+    text-align: center;
+}
+
+#button:focus{
+    border:none;
+}
+
+.subcard{
+    background-color: transparent;
+    box-shadow: 0 0 0 0.1vmin white inset;
+    border-top-left-radius:3vmin;
+    border-top-right-radius:3vmin;
+    height:6vmin;
+    width:50vmin;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 2vmin;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(30px); }
+    20% { transform: translate(-30px); }
+    40% { transform: translate(15px); }
+    60% { transform: translate(-15px); }
+    80% { transform: translate(8px); }
+    100% { transform: translate(0px); }
+}
+
+@keyframes fadeAnimation {
+
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 3/4) {
+     .cardText{
+        width:70vmin;
+        font-size:2.5vmin;
+    }
+
+    #loginForm{
+        width:70vmin;
+    }
+
+    #input_studentNum{
+        height:8vmin;
+    }
+
+    .inputText{
+        padding: 3vmin;
+        padding-left: 1vmin;
+        height:4vmin;
+        width:61.5vmin;
+        font-size:2vmin;
+    }
+
+    #buttonLogin{
+        border-radius: 3vmin;
+        width: 6vmin;
+        height: 6vmin;
+        font-size: 2vmin;
+    }
+}
