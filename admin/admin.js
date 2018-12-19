@@ -14,10 +14,22 @@ let loginInfo = document.getElementById("loginInfo");
 
 let inputQuestion = document.getElementById("inputQuestion");
 let inputButton = document.getElementById("inputButton");
-let textInfo = document.getElementById("info");
+let textInfo = document.getElementById("textInfo");
+let textQuestion = document.getElementById("textQuestion");
+let textVote = document.getElementById("textVote");
+let textDB = document.getElementById("textDB");
 
 viewLogin.style.display="none";
 view.style.display="none";
+
+
+function event(){
+
+}
+
+function eventReset(){
+
+}
 
 function adminLogin(){
     firebase.auth().signInWithEmailAndPassword(inputID.value, inputPassword.value)
@@ -37,7 +49,7 @@ function setVote(){
     isVotingRef.set(false);
 
     let arrVote = [];
-    let arrBtn = inputButton.value.split('$');
+    let arrBtn = inputButton.value.split(',');
 
     for (let i in arrBtn){
         arrVote.push({
@@ -74,7 +86,6 @@ function resetStatus(){
                 + "(" + (num/snapshot.numChildren()*100) + "%)"
         })
     })
-
 }
 
 
@@ -82,6 +93,28 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         view.style.display = "inline";
         viewLogin.style.display = "none";
+
+        let textify = function(snapshot, err){
+            let text = JSON.stringify(snapshot.val());
+            if(!text || text === '""'){
+                text = err
+            }
+
+            return text;
+        };
+
+        votingRef.on('value', function(snapshot){
+            textDB.innerText = textify(snapshot, "현재 집계 중인 투표가 없습니다.");
+        });
+
+        questionRef.on('value', function(snapshot){
+            textQuestion.innerText = textify(snapshot, "현재 설정된 투표가 없습니다.");
+        });
+
+        btnRef.on('value', function(snapshot){
+            textVote.innerText = textify(snapshot, "");
+        })
+
     } else {
         view.style.display = "none";
         viewLogin.style.display = "inline";

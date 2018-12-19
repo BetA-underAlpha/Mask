@@ -1,0 +1,70 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.halfFooter{
+    height: 90vh;
+}
+
+.card{
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2vmin;
+    margin: 5vmin;
+    padding: 2vmin;
+}
+
+.upCard{
+    border-top-left-radius: 2vmin;
+    border-top-right-radius: 2vmin;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom:0;
+    padding: 1.5vmin;
+    background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%);
+    color:white;
+    font-weight: bolder;
+}
+
+.downCard{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2vmin;
+    border-bottom-right-radius: 2vmin;
+    margin-top:0;
+}
+
+.closedCard{
+    border-radius: 2vmin;
+}
+
+#viewer{
+    display: inline;
+    height: 100%;
+    width: 100%;
+}
+
+#right{
+    height: 90%
+}
+
+#client{
+    padding:0;
+    background-color: hsl(263,45%,8%);
+    overflow: hidden;
+    height: 100%;
+}
+#clientPage{
+    width:100%;
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .halfFooter{
+        display:flex;
+        flex-direction: row;
+    }
+
+    .halfViewer{
+        width:50%
+    }
+}

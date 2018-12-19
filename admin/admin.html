@@ -3,39 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>Realtime Vote Admin</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;subset=korean" rel="stylesheet">
 
-    <div id = login>
-        관리자 이메일 <input type="email" id="inputID">
-        관리자 비말번호 <input type="password" id="inputPassword">
-        <button id="btnLogin" onClick="adminLogin()">로그인</button>
-        <div id="loginInfo"></div>
+    <div id="login">
+        <div class="card upCard">
+            Admin LOGIN
+        </div>
+        <div class="card downCard">
+            관리자 이메일 <input type="email" id="inputID">
+             관리자 비말번호 <input type="password" id="inputPassword">
+            <button id="btnLogin" onClick="adminLogin()">로그인</button>
+            <div id="loginInfo"></div>
+        </div>
     </div>
 
     <div id = viewer>
-        <div id="input">
-            <div id="question">
-                질문 <input type="text" id="inputQuestion">
+        <div class = "halfFooter">
+            <div class = "halfViewer" id = "left">
+                <div class="card upCard">
+                    Setting
+                </div>
+                <div class="card downCard" id="set">
+                    <div id="input">
+                        <div id="question">
+                            질문 <input type="text" id="inputQuestion">
+                        </div>
+                        <div id="button">
+                            버튼 (쉼표로 구별) <input type="text" id="inputButton">
+                        </div>
+                    </div>
+
+                    <div id="btns">
+                        <button id="btnSet" onClick="setVote()">준비</button>
+                        <button id="btnStart" onClick="startVote()">시작</button>
+                        <button id="btnEnd" onClick="endVote()">중지</button>
+                        <button id="btnReset" onClick="resetStatus()">초기화</button>
+                    </div>
+                </div>
+
+                <div class="card upCard">
+                    EVENT
+                </div>
+                <div class="card downCard">
+                    <div id="eventPerson"></div>
+
+                    <div id="eventControl">
+                        <button id="btnEvent" onclick="event()">추첨</button>
+                        <button id="btnEventReset" onclick="eventReset()">초기화</button>
+                    </div>
+                </div>
+                <div class="card upCard">
+                    Info
+                </div>
+                <div class="card downCard" id="info">
+                    <div id="textInfo">
+
+                    </div>
+                </div>
+
+                <div class="card upCard">
+                    Current Voting
+                </div>
+                <div class="card downCard" id="voting">
+                    <div id="textQuestion">
+
+                    </div>
+                    <div id="textVote">
+                        Loading...
+                    </div>
+                </div>
+
+                <div class="card upCard">
+                    Voting Status
+                </div>
+                <div class="card downCard" id="db">
+                    <div id="textDB">
+                        Loading...
+                    </div>
+                </div>
             </div>
-            <div id="button">
-                버튼 ($로 구별) <input type="text" id="inputButton">
+            <div class = "halfViewer" id = "right">
+                <div class="card upCard" id="clientTitle">
+                    Client
+                </div>
+                <div class="card downCard" id="client">
+                    <iframe id="clientPage" src="https://beta-underalpha.github.io" height="100%" scrolling="no" frameborder="0"></iframe>
+                </div>
+
             </div>
-        </div>
-
-        <div id="btns">
-            <button id="btnSet" onClick="setVote()">준비</button>
-            <button id="btnStart" onClick="startVote()">시작</button>
-            <button id="btnEnd" onClick="endVote()">중지</button>
-            <button id="btnReset" onClick="resetStatus()">초기화</button>
-        </div>
-
-        <div id="info">
-
         </div>
     </div>
 
