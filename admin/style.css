@@ -2,6 +2,21 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+button{
+    background-color: #7028e4;
+    border-radius: 0.5vmin;
+    border:none;
+    color:white;
+    padding: 0.3vmin;
+}
+
+input{
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 0.8vmin;
+    height:2.2vmin;
+}
+
 .halfFooter{
     height: 90vh;
 }
@@ -34,8 +49,35 @@ body{
     margin-top:0;
 }
 
+.subcard{
+    margin: 2vmin
+}
+
+.subcardTitle{
+    font-weight: bolder;
+}
+
+.halfCardFooter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.halfCard{
+    width: 50%
+}
+
 .closedCard{
     border-radius: 2vmin;
+}
+
+
+
+.textOut{
+    box-shadow: none;
+    padding: 0;
+    font-weight: bolder;
+    color: #5271C4;
 }
 
 #viewer{
@@ -47,7 +89,9 @@ body{
 #right{
     height: 90%
 }
-
+#btns{
+    margin-top: 1vmin
+}
 #client{
     padding:0;
     background-color: hsl(263,45%,8%);
@@ -56,6 +100,17 @@ body{
 }
 #clientPage{
     width:100%;
+}
+#eventTitle{
+    width:50%;
+}
+#eventControl{
+    width:50%;
+    text-align: right;
+}
+#subcardEvent{
+    display: flex;
+    flex-direction: row;
 }
 
 @media (min-aspect-ratio: 1/1) {
@@ -66,5 +121,11 @@ body{
 
     .halfViewer{
         width:50%
+    }
+
+    #left{
+        /*overflow-y: scroll;
+        scrollbar-base-color: transparent;
+        height: 100vh;*/
     }
 }

@@ -17,8 +17,8 @@
             Admin LOGIN
         </div>
         <div class="card downCard">
-            관리자 이메일 <input type="email" id="inputID">
-             관리자 비말번호 <input type="password" id="inputPassword">
+            ID <input type="email" id="inputID">
+                PW  <input type="password" id="inputPassword">
             <button id="btnLogin" onClick="adminLogin()">로그인</button>
             <div id="loginInfo"></div>
         </div>
@@ -31,34 +31,38 @@
                     Setting
                 </div>
                 <div class="card downCard" id="set">
-                    <div id="input">
-                        <div id="question">
-                            질문 <input type="text" id="inputQuestion">
+                    <div class="halfCardFooter">
+                        <div class="halfCard" id="settingLeft">
+                            <div id="input">
+                                <div id="question">
+                                    질문 <input type="text" id="inputQuestion">
+                                </div>
+                                <div id="button">
+                                    버튼 (쉼표로 구별) <input type="text" id="inputButton">
+                                </div>
+                            </div>
+
+                            <div id="btns">
+                                <button id="btnSet" onClick="setVote()">준비</button>
+                                <button id="btnStart" onClick="startVote()">시작</button>
+                                <button id="btnEnd" onClick="endVote()">중지</button>
+                                <button id="btnReset" onClick="resetStatus()">초기화</button>
+                                <button id="btnLogout" onclick="logout()">로그아웃</button>
+                            </div>
                         </div>
-                        <div id="button">
-                            버튼 (쉼표로 구별) <input type="text" id="inputButton">
+                        <div class="halfCard" id="settingRight">
+                            <div class="card subcard" id="subcardEvent">
+                                <div class="subcardTitle" id="eventTitle">EVENT</div>
+                                <div id="eventControl">
+                                    <button id="btnEvent" onclick="eventStart()">추첨</button>
+                                    <button id="btnEventReset" onclick="eventReset()">초기화</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div id="btns">
-                        <button id="btnSet" onClick="setVote()">준비</button>
-                        <button id="btnStart" onClick="startVote()">시작</button>
-                        <button id="btnEnd" onClick="endVote()">중지</button>
-                        <button id="btnReset" onClick="resetStatus()">초기화</button>
-                    </div>
                 </div>
 
-                <div class="card upCard">
-                    EVENT
-                </div>
-                <div class="card downCard">
-                    <div id="eventPerson"></div>
-
-                    <div id="eventControl">
-                        <button id="btnEvent" onclick="event()">추첨</button>
-                        <button id="btnEventReset" onclick="eventReset()">초기화</button>
-                    </div>
-                </div>
                 <div class="card upCard">
                     Info
                 </div>
@@ -72,12 +76,7 @@
                     Current Voting
                 </div>
                 <div class="card downCard" id="voting">
-                    <div id="textQuestion">
-
-                    </div>
-                    <div id="textVote">
-                        Loading...
-                    </div>
+                    <span id="textQuestion">Loading...</span><span id="textVote"></span>
                 </div>
 
                 <div class="card upCard">
