@@ -1,3 +1,7 @@
+*:focus{
+    outline:none
+}
+
 body{
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -11,10 +15,12 @@ button{
 }
 
 input{
+    padding-left:1vmin;
     border: none;
     background-color: #eeeeee;
     border-radius: 0.8vmin;
     height:2.2vmin;
+
 }
 
 .halfFooter{
