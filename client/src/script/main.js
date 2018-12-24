@@ -363,24 +363,31 @@ let main = function(user){
         },
         methods:{
             select: function(name, event){
-                if(confirm(name+'에 투표하시겠습니까?') === true){
-                    makeVotingMode();
-                    firebase.database().ref('mask/voting/'+name).transaction(function(snapshot){
-                        if(snapshot){
-                            snapshot++;
-                        } else {
-                            snapshot=1;
-                        }
-                        return snapshot;
-                    })
-                        .then(function(){
-                            makeCompleteMode();
-                            statusRef.set(true)
+                setTimeout(function(){
+                    if(confirm(name+'에 투표하시겠습니까?') === true){
+                        makeVotingMode();
+                        firebase.database().ref('mask/voting/'+name).transaction(function(snapshot){
+                            if(snapshot){
+                                snapshot++;
+                            } else {
+                                snapshot=1;
+                            }
+                            return snapshot;
                         })
-                        .catch(function(reject){
-                            snack('오류가 발생했습니다. 다시 시도해주세요..ㅠ\n'+reject)
-                        })
-                }
+                            .then(function(){
+                                makeCompleteMode();
+                                statusRef.set(true)
+                            })
+                            .catch(function(reject){
+                                snack('오류가 발생했습니다. 다시 시도해주세요..ㅠ\n'+reject)
+                            })
+                    } else {
+                        [].forEach.call(document.getElementsByClassName("select"),function(el){
+
+                        });
+                    }
+                },250);
+
             }
         }
     });
