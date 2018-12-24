@@ -84,7 +84,7 @@ body{
 
 .select{
     width: 98%;
-    height: 95%;
+    height: 90%;
     background: transparent;
     color: white;
     border-color:white;
@@ -93,7 +93,7 @@ body{
     transition: 0.3s;
 }
 
-.select:hover{
+.select:hover, .select:active{
     background-color:white;
     color:black;
 }
@@ -271,5 +271,22 @@ body{
         width: 6vmin;
         height: 6vmin;
         font-size: 2vmin;
+    }
+
+    .select{
+        width: 93%;
+        height: 75%;
+        /*box-shadow: 0 3px 6px rgba(128,128,128,0.16), 0 3px 6px rgba(128,128,128,0.23);*/
+        border-radius: 5vh;
+        background-color: white;
+        color:black;
+    }
+
+    .select:hover, .select:active{
+        background: transparent;
+        border-color:white;
+        font-size: 3.5vmin;
+        box-shadow:inset 0px 0px 0px 0.3vmin #ffffff;
+        color: white;
     }
 }

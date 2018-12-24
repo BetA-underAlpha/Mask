@@ -4,7 +4,7 @@ console.log("BJHS RVS\n" +
     "https://github.com/BetA-underAlpha");
 
 const MSG_COMPLETE = '투표에 성공적으로 참여했습니다!';
-const MSG_WAIT = '투표 대기 중입니다아';
+const MSG_WAIT = '투표 대기 중 입니다아';
 const MSG_VOTING = '서버와 통신 중입니다. 절대로 화면을 벗어나지 마세요!';
 const MSG_CHKNUM = '학번을 다시 확인해주세요! 다섯자리 형식으로 입력해야 합니다. ex)30629';
 const MSG_PUTNUM = '학번을 입력해주세요!';
